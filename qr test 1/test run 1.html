@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trailer Registration Search</title>
+  <link rel="stylesheet" href="app.css">
+  <style>
+    /* Updated border style for .navbar */
+    .navbar {
+      background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
+        linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      color: #fff;
+      padding: .10px 1px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo-container" style="width: 20%;">
+          <img src="MH Logo.jpg" alt="Brand Logo" style="width: 100%; border-radius: 10px;">
+        </div>
+        <a class="navbar-brand" href="#">Mohawk Industries</a>
+        <ul class="navbar-menu">
+          <li class="navbar-item"><a href="https://mohawkind.com/" target="_blank">Home</a></li>
+          <li class="navbar-item"><a href="#">Services</a></li>
+          <li class="navbar-item"><a href="#">About</a></li>
+          <li class="navbar-item"><a href="#" onclick="toggleContact()">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Trailer Registration Search</h1>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Enter Trailer Number">
+        <button class="search-button">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="container">
+      <h2 class="results-title">Search Results</h2>
+      <ul class="results-list"></ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact-section" style="display: none;">
+    <div class="container">
+      <h2 class="contact-title">Contact</h2>
+      <p class="contact-info">For problems or issues, please contact:</p>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <h3 class="contact-name">Tommy Knotts</h3>
+          <p class="contact-phone">Phone: 706-366-5920</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+  <script>
+    function toggleContact() {
+      var contactSection = document.getElementById("contact-section");
+      contactSection.style.display = contactSection.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>

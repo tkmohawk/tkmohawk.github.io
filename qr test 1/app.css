@@ -1,0 +1,116 @@
+ /* General styles */
+ body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #0f0505;
+  color: #fff;
+  padding: 1px 2px;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero section styles */
+.hero {
+  background-color: red;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Search container styles */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: 1px solid black; /* Add border */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Results section styles */
+.results-title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+}
+
+.results-list li {
+  padding: 20px;
+  border-bottom: 5px solid #ccc;
+}
+
+/* Additional styles */
+/* Add your custom styles here as needed */
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.details-container {
+  text-align: center;
+}
+
+.image-container {
+  margin-top: 10px;
+}
