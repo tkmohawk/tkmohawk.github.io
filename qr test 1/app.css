@@ -1,5 +1,5 @@
- /* General styles */
- body {
+/* General styles */
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -43,7 +43,7 @@
 
 /* Hero section styles */
 .hero {
-  background-color: red;
+  background-color: rgb(208, 22, 59);
   padding: 40px 0;
   text-align: center;
 }
@@ -72,14 +72,13 @@
 
 .search-button {
   padding: 10px 20px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
   font-size: 16px;
   border: 1px solid black; /* Add border */
   border-radius: 4px;
   cursor: pointer;
 }
-
 
 /* Results section styles */
 .results-title {
@@ -98,8 +97,6 @@
 }
 
 /* Additional styles */
-/* Add your custom styles here as needed */
-
 .result-item {
   display: flex;
   flex-direction: column;
