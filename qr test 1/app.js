@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       const registrations = data.registrations;
 
-      // Handle search button click event
-      searchButton.addEventListener('click', function() {
+      // Function to handle the search
+      function performSearch() {
         const searchQuery = searchInput.value.trim();
 
         // Clear previous results
@@ -46,13 +46,24 @@ document.addEventListener('DOMContentLoaded', function() {
             resultsList.appendChild(resultItem);
           }
         }
+      }
+
+      // Handle search button click event
+      searchButton.addEventListener('click', performSearch);
+
+      // Handle form submission event
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        performSearch();
+      });
+
+      // Handle Enter key press event on search input
+      searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          performSearch();
+        }
       });
     })
     .catch(error => console.log('Error loading trailer data:', error));
-
-  // Handle form submission event
-  document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    searchButton.click();
-  });
 });
