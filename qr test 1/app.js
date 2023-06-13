@@ -21,23 +21,67 @@ document.addEventListener('DOMContentLoaded', function() {
         // Perform search or replace with your own logic
         if (searchQuery !== '') {
           const filteredRegistrations = registrations.filter(registration =>
-            registration.trailerNumber.includes(searchQuery)
+            (registration.trailerNumber && registration.trailerNumber.includes(searchQuery)) ||
+            (registration.truckNumber && registration.truckNumber.includes(searchQuery))
           );
 
           if (filteredRegistrations.length > 0) {
             filteredRegistrations.forEach(registration => {
               const resultItem = document.createElement('li');
               resultItem.classList.add('result-item');
-              resultItem.innerHTML = `
-                <div class="image-container">
-                  <img src="${registration.image}" alt="Registration Image">
-                </div>
-                <div class="details-container">
-                  <p>Trailer Number: ${registration.trailerNumber}</p>
-                  <p>Owner: ${registration.ownerName}</p>
-                  <p>State: ${registration.state}</p>
-                </div>
+              const imageContainer = document.createElement('div');
+              imageContainer.classList.add('image-container');
+              const detailsContainer = document.createElement('div');
+              detailsContainer.classList.add('details-container');
+
+              // Display one image for trailers
+              if (registration.trailerNumber) {
+                const trailerImage = document.createElement('img');
+                trailerImage.src = registration.image || registration.images.image1;
+                trailerImage.alt = 'Trailer Image';
+                imageContainer.appendChild(trailerImage);
+              }
+              
+              // Display three images for trucks
+              if (registration.truckNumber) {
+                const truckImagesContainer = document.createElement('div');
+                truckImagesContainer.classList.add('truck-images-container');
+
+                const truckImage1 = document.createElement('img');
+                truckImage1.src = registration.images.image1;
+                truckImage1.alt = 'Truck Image 1';
+                truckImagesContainer.appendChild(truckImage1);
+                
+                const truckImage2 = document.createElement('img');
+                truckImage2.src = registration.images.image2;
+                truckImage2.alt = 'Truck Image 2';
+                truckImagesContainer.appendChild(truckImage2);
+                
+                const truckImage3 = document.createElement('img');
+                truckImage3.src = registration.images.image3;
+                truckImage3.alt = 'Truck Image 3';
+                imageContainer.appendChild(truckImagesContainer);
+                imageContainer.appendChild(truckImage3);
+                
+                // Display "U.S. DOT #" field for trucks
+                const dotNumber = registration["U.S. DOT #"];
+                const dotNumberElement = document.createElement('p');
+                dotNumberElement.textContent = `U.S. DOT #: ${dotNumber}`;
+                detailsContainer.appendChild(dotNumberElement);
+              }
+
+              const truckNumber = registration.truckNumber ? 'Truck Number' : 'Trailer Number';
+              const ownerName = registration.ownerName;
+              const state = registration.state;
+
+              detailsContainer.innerHTML += `
+                <p>${truckNumber}: ${registration.truckNumber || registration.trailerNumber}</p>
+                <p>Owner: ${ownerName}</p>
+                <p>State: ${state}</p>
               `;
+
+              resultItem.appendChild(imageContainer);
+              resultItem.appendChild(detailsContainer);
               resultsList.appendChild(resultItem);
             });
           } else {
